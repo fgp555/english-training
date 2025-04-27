@@ -1,0 +1,357 @@
+<!-- https://chatgpt.com/c/680e3c6b-0b3c-8006-80d2-13ace0bcb56f -->
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mecanografía for writing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://frankgp.com/component/stat.js" type="module"></script>
+    <style>
+      #result {
+        margin-top: 20px;
+        font-size: 1.2rem;
+      }
+      .correct {
+        color: green;
+      }
+      .incorrect {
+        color: red;
+        text-decoration: underline;
+      }
+      .counters {
+        font-size: 0.8;
+        opacity: 0.7;
+      }
+      textarea {
+        min-height: 10rem;
+        overflow-y: hidden;
+        resize: none;
+      }
+      footer {
+        text-align: center;
+      }
+      .red {
+        color: red;
+      }
+      .green {
+        color: white;
+        background-color: green;
+        padding: 0.2rem 0.8rem;
+        border-radius: 1rem;
+      }
+      .fz-sm {
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>
+        <a href="../">Mecanografía for writing</a>
+      </h1>
+
+      <label for="textToType"
+        ><strong>Pega aquí el texto en inglés:</strong>
+        <span id="originalCounters" class="counters">Palabras: 0 | Caracteres: 0</span></label
+      >
+      <textarea id="textToType" placeholder="Pega el texto aquí..."></textarea>
+
+      <label for="userInput"
+        ><strong>Escribe el texto:</strong>
+        <span id="typedCounters" class="counters">Palabras: 0 | Caracteres: 0 |</span>
+        <span id="timer" class="green">Tiempo: 60s</span>
+      </label>
+      <textarea id="userInput" placeholder="Escribe aquí..." disabled></textarea>
+
+      <div style="margin-top: 1rem">
+        <button id="startBtn">Comenzar</button>
+        <button id="compareBtn" class="secondary">Comparar</button>
+      </div>
+
+      <div id="result"></div>
+    </main>
+
+    <footer>
+      <!-- ========== youtube_embed component... ========== -->
+      <youtube_embed data-url="https://youtu.be/buXv7wHS3Kk"></youtube_embed>
+
+      <script src="https://frankgp.com/lib/youtube-embed.js"></script>
+      <!-- ========== youtube_embed component. ========== -->
+    </footer>
+
+    <pre>
+      <code>2025-04-27        
+It was an opportunity the entire time it was just disguised as a problem.
+let me unpack this for you because this shift in thinking changes everything
+so I want you to imagine the particular chapters or seasons of life
+
+where what's in front of you feels so big that it's insurmountable
+it's constant chaos fight or flight mode
+it's the walls closing in around you right in those moments 
+
+historically you know I would feel disappointment and shame and just sadness right for letting that happen 
+it's like 
+how could I not have been better 
+how could I not have had the foresight 
+how am I the guy in this spot this 
+
+isn't good therefore I'm not good 
+you reap what you sow 
+but what I've come to learn is that not only is that thinking obviously counterproductive it's false</code>
+    </pre>
+
+    <button
+      id="toggleThemeBtn"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 0.8rem 1rem;
+        border-radius: 50px;
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 1.5rem;
+      "
+    >
+      <i id="themeIcon" class="fas fa-moon"></i>
+    </button>
+
+    <script>
+      const toggleBtn = document.getElementById("toggleThemeBtn");
+      const themeIcon = document.getElementById("themeIcon");
+      const html = document.documentElement;
+
+      function updateIcon(theme) {
+        if (theme === "light") {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        } else {
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        html.setAttribute("data-theme", savedTheme);
+        updateIcon(savedTheme);
+      });
+
+      toggleBtn.addEventListener("click", () => {
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateIcon(newTheme);
+      });
+    </script>
+
+    <script>
+      const textToType = document.getElementById("textToType");
+      const userInput = document.getElementById("userInput");
+      const timer = document.getElementById("timer");
+      const startBtn = document.getElementById("startBtn");
+      const compareBtn = document.getElementById("compareBtn");
+      const result = document.getElementById("result");
+      const originalCounters = document.getElementById("originalCounters");
+      const typedCounters = document.getElementById("typedCounters");
+
+      let timeLeft = 60;
+      let timerInterval;
+
+      startBtn.addEventListener("click", startGame);
+      compareBtn.addEventListener("click", compareTexts);
+
+      updateOriginalCounters();
+      autoResize(textToType);
+
+      textToType.addEventListener("input", () => {
+        updateOriginalCounters();
+        autoResize(textToType);
+      });
+
+      userInput.addEventListener("input", () => {
+        updateTypedCounters();
+        autoResize(userInput);
+      });
+
+      function startGame() {
+        const text = textToType.value.trim();
+        if (text === "") {
+          alert("Por favor, pega o escribe un texto antes de comenzar.");
+          return;
+        }
+
+        userInput.value = "";
+        userInput.disabled = false;
+        userInput.focus();
+        timeLeft = 60;
+        timer.textContent = `Tiempo: ${timeLeft}s`;
+
+        clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          timer.textContent = `Tiempo: ${timeLeft}s`;
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            userInput.disabled = true;
+            compareTexts();
+          }
+        }, 1000);
+      }
+
+      function compareTexts() {
+        const original = textToType.value.trim();
+        const typed = userInput.value.trim();
+
+        if (!original || !typed) {
+          alert("Debe haber texto en ambos campos para comparar.");
+          return;
+        }
+
+        const originalWords = original.split(/\s+/);
+        const typedWords = typed.split(/\s+/);
+
+        let comparison = "";
+        let correctCount = 0;
+
+        for (let i = 0; i < typedWords.length; i++) {
+          if (originalWords[i] === typedWords[i]) {
+            comparison += `<span class="correct">${typedWords[i]}</span> `;
+            correctCount++;
+          } else {
+            comparison += `<span class="incorrect">${typedWords[i] || ""}</span> `;
+          }
+        }
+
+        result.innerHTML = `<h3>Resultado:</h3><p>${comparison}</p><p>Palabras correctas: ${correctCount} / ${originalWords.length}</p>`;
+
+        saveHistory(typed, correctCount, originalWords.length);
+        showHistory();
+      }
+
+      function updateOriginalCounters() {
+        const text = textToType.value.trim();
+        const words = text ? text.split(/\s+/).length : 0;
+        const chars = text.length;
+        originalCounters.textContent = `Palabras: ${words} | Caracteres: ${chars}`;
+      }
+
+      function updateTypedCounters() {
+        const text = userInput.value.trim();
+        const words = text ? text.split(/\s+/).length : 0;
+        const chars = text.length;
+        typedCounters.textContent = `Palabras: ${words} | Caracteres: ${chars}`;
+      }
+
+      function autoResize(textarea) {
+        textarea.style.height = "2rem";
+        textarea.style.height = textarea.scrollHeight + "px";
+      }
+
+      function saveHistory(typedText, correctWords, totalWords) {
+        const history = JSON.parse(localStorage.getItem("typingHistory")) || [];
+
+        history.push({
+          date: Date.now(),
+          // typedText,
+          correctWords,
+          totalWords,
+        });
+
+        // Guardamos el historial actualizado en el localStorage
+        localStorage.setItem("typingHistory", JSON.stringify(history));
+      }
+
+      function showHistory() {
+        const history = JSON.parse(localStorage.getItem("typingHistory")) || [];
+
+        // Verificamos si hay historial
+        if (history.length === 0) {
+          result.innerHTML += "<p><em>No hay historial guardado.</em></p>";
+          return;
+        }
+
+        let historyHtml = "<h3>Historial:</h3><ul>";
+
+        history.sort((a, b) => b.date - a.date);
+
+        // Mostramos los 5 registros más recientes
+        history.slice(0, 5).forEach((item) => {
+          historyHtml += `<li><i class="fz-sm">${new Date(item.date).toLocaleString()}</i> 
+            <strong class="green">${item.correctWords}</strong>
+            <i class="fz-sm">/${item.totalWords} palabras correctas</i>
+            </li>`;
+        });
+
+        historyHtml += "</ul>";
+        result.innerHTML += historyHtml;
+      }
+
+      function clearHistory() {
+        if (confirm("¿Seguro que quieres borrar el historial?")) {
+          localStorage.removeItem("typingHistory");
+          result.innerHTML = "<p><em>Historial borrado.</em></p>";
+        }
+      }
+
+      // Borrar historial con Ctrl + S
+      window.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "s") {
+          e.preventDefault();
+          clearHistory();
+        }
+      });
+
+      // Comenzar juego con Ctrl + Enter
+      window.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "Enter") {
+          e.preventDefault();
+          startGame();
+        }
+      });
+
+      // Borrar historial con triple clic
+      let clickCount = 0;
+      let clickTimer = null;
+
+      window.addEventListener("click", () => {
+        clickCount++;
+        if (clickCount === 4) {
+          clearHistory();
+          clickCount = 0;
+        }
+
+        clearTimeout(clickTimer);
+        clickTimer = setTimeout(() => {
+          clickCount = 0;
+        }, 300); // máximo 600ms entre clics para que cuente como triple clic
+      });
+
+      showHistory();
+    </script>
+
+    <script>
+      const textArea = document.getElementById("textToType");
+
+      // Al cargar la página, intenta cargar el texto guardado
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedText = localStorage.getItem("textToType");
+        if (savedText !== null) {
+          textArea.value = savedText;
+        }
+        autoResize(textArea);
+        updateOriginalCounters();
+      });
+
+      // Cada vez que el usuario escriba algo, guárdalo en localStorage
+      textArea.addEventListener("input", () => {
+        localStorage.setItem("textToType", textArea.value);
+      });
+    </script>
+  </body>
+</html>

@@ -1,6 +1,20 @@
 # English-Training
 
-[https://fgp555.github.io/english-training](https://fgp555.github.io/english-training/)
+https://fgp555.github.io/english-training
+
+## App
+
+- [app/](./app/)
+
+## Youtube
+
+- [youtube/slow-english/MaestraMielll](./youtube/slow-english/MaestraMielll)
+- [youtube/BusinessEnglishLearning/Job-Interview-Dialogues](./youtube/BusinessEnglishLearning/Job-Interview-Dialogues)
+- [youtube/speech/Yourworldwithin/stop-missing-the-opportunity](./youtube/speech/Yourworldwithin/stop-missing-the-opportunity)
+
+## Music
+
+- [music/counting-stars](./music/counting-stars)
 
 ## Dialogues for Programmers
 
@@ -9,13 +23,5 @@
 - [dev/job-interview-advanced](./dev/job-interview-advanced)
 - [dev/job-interview](./dev/job-interview)
 - [dev/mini-story](./dev/mini-story)
-
-## Music
-
-- [music/counting-stars](./music/counting-stars)
-
-## Slow English
-
-- [youtube/slow-english/MaestraMielll](./youtube/slow-english/MaestraMielll)
 
 ---
