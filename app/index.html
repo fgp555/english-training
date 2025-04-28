@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://frankgp.com/component/stat.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
       #result {
         margin-top: 20px;
@@ -43,6 +44,10 @@
       .fz-sm {
         font-size: 0.8rem;
       }
+      .markdown-content {
+        max-width: 50rem;
+        margin: 5rem auto;
+      }
     </style>
   </head>
   <body>
@@ -66,7 +71,8 @@
 
       <div style="margin-top: 1rem">
         <button id="startBtn">Comenzar</button>
-        <button id="compareBtn" class="secondary">Comparar</button>
+        <!-- <button id="compareBtn" class="secondary">Comparar</button> -->
+        <button id="clearBtn" class="secondary">Borrar historial</button>
       </div>
 
       <div id="result"></div>
@@ -80,26 +86,7 @@
       <!-- ========== youtube_embed component. ========== -->
     </footer>
 
-    <pre>
-      <code>2025-04-27        
-It was an opportunity the entire time it was just disguised as a problem.
-let me unpack this for you because this shift in thinking changes everything
-so I want you to imagine the particular chapters or seasons of life
-
-where what's in front of you feels so big that it's insurmountable
-it's constant chaos fight or flight mode
-it's the walls closing in around you right in those moments 
-
-historically you know I would feel disappointment and shame and just sadness right for letting that happen 
-it's like 
-how could I not have been better 
-how could I not have had the foresight 
-how am I the guy in this spot this 
-
-isn't good therefore I'm not good 
-you reap what you sow 
-but what I've come to learn is that not only is that thinking obviously counterproductive it's false</code>
-    </pre>
+    <div id="markdown-content" class="markdown-content"></div>
 
     <button
       id="toggleThemeBtn"
@@ -119,7 +106,19 @@ but what I've come to learn is that not only is that thinking obviously counterp
     >
       <i id="themeIcon" class="fas fa-moon"></i>
     </button>
-
+    <script>
+      // Cargar el archivo markdown.md
+      fetch("../youtube/speech/Yourworldwithin/stop-missing-the-opportunity.md")
+        .then((response) => response.text())
+        .then((text) => {
+          // Convertir el contenido markdown a HTML
+          const html = marked.parse(text);
+          document.getElementById("markdown-content").innerHTML = html;
+        })
+        .catch((error) => {
+          console.error("Error cargando el Markdown:", error);
+        });
+    </script>
     <script>
       const toggleBtn = document.getElementById("toggleThemeBtn");
       const themeIcon = document.getElementById("themeIcon");
@@ -155,7 +154,8 @@ but what I've come to learn is that not only is that thinking obviously counterp
       const userInput = document.getElementById("userInput");
       const timer = document.getElementById("timer");
       const startBtn = document.getElementById("startBtn");
-      const compareBtn = document.getElementById("compareBtn");
+      // const compareBtn = document.getElementById("compareBtn");
+      const clearBtn = document.getElementById("clearBtn");
       const result = document.getElementById("result");
       const originalCounters = document.getElementById("originalCounters");
       const typedCounters = document.getElementById("typedCounters");
@@ -164,7 +164,8 @@ but what I've come to learn is that not only is that thinking obviously counterp
       let timerInterval;
 
       startBtn.addEventListener("click", startGame);
-      compareBtn.addEventListener("click", compareTexts);
+      // compareBtn.addEventListener("click", compareTexts);
+      clearBtn.addEventListener("click", clearHistory);
 
       updateOriginalCounters();
       autoResize(textToType);
@@ -258,9 +259,9 @@ but what I've come to learn is that not only is that thinking obviously counterp
 
         history.push({
           date: Date.now(),
-          // typedText,
           correctWords,
           totalWords,
+          typedText,
         });
 
         // Guardamos el historial actualizado en el localStorage
@@ -283,8 +284,9 @@ but what I've come to learn is that not only is that thinking obviously counterp
         // Mostramos los 5 registros más recientes
         history.slice(0, 5).forEach((item) => {
           historyHtml += `<li><i class="fz-sm">${new Date(item.date).toLocaleString()}</i> 
-            <strong class="green">${item.correctWords}</strong>
-            <i class="fz-sm">/${item.totalWords} palabras correctas</i>
+            <strong class="green fz-sm">${item.correctWords}</strong>
+            <i class="fz-sm">/${item.totalWords}</i>
+            <span class="fz-sm">${item?.typedText?.split(" ").slice(0, 5).join(" ")}...</span>
             </li>`;
         });
 
