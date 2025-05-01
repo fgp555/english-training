@@ -77,19 +77,71 @@ era si ibas o no a comprar un café en Starbucks.
 Hermano, eso no es la vida, eso es el piloto automático.
 ```
 
-### 00:02:58 wednesday 2025-04-30
+### wednesday 2025-04-30 00:02:58
+
+```
+life well, life is what you do when you're broken
+when you're down 25 at halftime
+life is feeling lost but continuing forward it's
+
+how you bounce back when you lose a loved one
+when the sales numbers are plummeting
+when you don't know how you're gonna keep the doors open
+when you're looking around
+
+and for the life of you
+you can't figure out how you're gonna hold it together
+how are you gonna come out of this victorious
+life is when reality grabs you by the collar and shakes you
+
+what do you do with that?
+that's life, it's learning
+no, never take it personally
+but take it for the opportunity that it is
+and I'm not saying it's an easy initiative
+
+but it also happens to be the only good option
+some people use mountains to get stronger
+others set up camp at the mountain's base
+and forever look up at the top
+imagining
+```
+
+```
+La vida… bueno, la vida es lo que haces cuando estás roto,
+cuando vas perdiendo por 25 al llegar al descanso.
+La vida es sentirse perdido pero seguir adelante. Es:
+
+cómo te recuperas cuando pierdes a un ser querido,
+cuando las ventas están cayendo en picada,
+cuando no sabes cómo vas a mantener las puertas abiertas,
+cuando miras a tu alrededor
+
+y por más que lo intentes,
+no puedes entender cómo vas a mantenerlo todo en pie,
+cómo vas a salir de esto con la victoria.
+La vida es cuando la realidad te agarra del cuello y te sacude.
+
+¿Qué haces con eso?
+Eso es la vida: es aprendizaje.
+No, nunca te lo tomes como algo personal.
+Pero sí tómalo como la oportunidad que es.
+Y no digo que sea fácil tomar la iniciativa,
+
+pero también resulta ser la única buena opción.
+Algunas personas usan las montañas para hacerse más fuertes.
+Otras montan campamento al pie de la montaña
+y pasan la vida mirando hacia la cima, imaginando…
+
+```
+
+### thursday 2025-05-01 00:04:00
 
 ```
 
 ```
 
 <!--
-
-### thursday 2025-05-01
-
-```
-
-```
 
 ### friday 2025-05-02
 

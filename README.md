@@ -4,7 +4,7 @@ https://fgp555.github.io/english-training
 
 ## App
 
-- [app/](./app/)
+- [Typing to practice writing in English | English-Training/](./app/)
 
 ## Youtube
 
