@@ -3,7 +3,7 @@
 <html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <title>Mecanografía for writing</title>
+    <title>Typing to practice writing in English</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://frankgp.com/component/stat.js" type="module"></script>
@@ -53,7 +53,7 @@
   <body>
     <main class="container">
       <h1>
-        <a href="../">Mecanografía for writing</a>
+        <a href="../">Typing to practice writing in English</a>
       </h1>
 
       <label for="textToType"
@@ -78,14 +78,6 @@
       <div id="result"></div>
     </main>
 
-    <footer>
-      <!-- ========== youtube_embed component... ========== -->
-      <youtube_embed data-url="https://youtu.be/buXv7wHS3Kk"></youtube_embed>
-
-      <script src="https://frankgp.com/lib/youtube-embed.js"></script>
-      <!-- ========== youtube_embed component. ========== -->
-    </footer>
-
     <div id="markdown-content" class="markdown-content"></div>
 
     <button
@@ -108,7 +100,7 @@
     </button>
     <script>
       // Cargar el archivo markdown.md
-      fetch("../youtube/speech/Yourworldwithin/stop-missing-the-opportunity.md?2025_04_29")
+      fetch("../youtube/speech/Yourworldwithin/stop-missing-the-opportunity.md?" + Date.now())
         .then((response) => response.text())
         .then((text) => {
           // Convertir el contenido markdown a HTML

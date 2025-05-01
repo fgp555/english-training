@@ -1,112 +1,24 @@
-[STOP MISSING THE OPPORTUNITY THAT SURROUNDS YOU - Best Morning Motivational Video Speeches](https://youtu.be/buXv7wHS3Kk)
+[DOMINATE 2025 - Best New Year Motivational Video Speeches Compilation](https://youtu.be/lpAMelLb3Ck)
 
 ### 00:00:00 sunday 2025-04-27
 
 ```
+there's a latin phrase pronounced amor fati
+it's one of the more powerful ideas i've come across
+its translation means love of fate
 
-It was an opportunity the entire time it was just disguised as a problem.
-let me unpack this for you because this shift in thinking changes everything
-so I want you to imagine the particular chapters or seasons of life
+it implies everythings that happens is good or at the very least necessary and I think we need that remimder from time to time
 
-where what's in front of you feels so big that it's insurmountable
-it's constant chaos fight or flight mode
-it's the walls closing in around you right in those moments
+because funny enough it is one of the first sentiments to leave us when we're in trouble when we're down or lost 
 
-historically you know I would feel disappointment
-and shame and just sadness right for letting that happen
-it's like
-how could I not have been better
-how could I not have had the foresight
-how am I the guy in this spot this
+the idea that everything has its value and sure we don't always understand it in the moment or when we're fighting through it
 
-isn't good therefore I'm not good
-you reap what you sow
-but what I've come to learn is that not only is that thinking obviously counterproductive
-it's false
-```
+but that circumstance or even tragedy in the great play of life has a crufial role
 
-### 00:00:58 monday 2025-04-28
+someone recently sent me a beautiful clip from a Stephen Colbert interview, and I want to dive in
 
-```
-because it's in those very moments
-where it feels like the walls are caving in that we are handed the greatest opportunity of all
-right we are not past decisions
-we're not prior circumstances we are defined by what we do amidst the chaos
+but there's a caveat I ask that you listen to this in a vacuum, for our purposes not going to be the Stephen Colbert who mocks half the country on live TV every night this is the wise Stephen Colbert with a lot of value to add because he can be both to frame the interview he's sitting across from Anderson Cooper.
 
-we are defined by our ability to get back up and rise again
-because those moments
-yeah the very moments that feel like you're suffocating they are when life begins
-but go beyond the semantics
-here because I'm not speaking metaphorically I'm not trying to be cute with words
+and Anderson's asking him about something he said a while back, Anderson reads the quote "I've learned to love the things I'd most wished had not happened what punishments of god are not gifts".
 
-truly when we feel lost and overwhelmed and stuck and scared
-when we feel the odds are stacked against us
-when every door seems locked
-that's when the universe presses the play button and the movie starts
-```
-
-### 00:02:00 Tusday 2025-04-29
-
-```
-and yeah, no one avoids these moments
-there's a difficulty a suffering attached to living.
-that's the human predicament.
-but some of us a few of us accept the invitation
-to turn those moments and that suffering into something beautiful.
-
-Y sí, nadie evita estos momentos.
-Hay una dificultad, un sufrimiento ligado al hecho de vivir.
-Esa es la condición humana.
-Pero algunos de nosotros, unos pocos, aceptamos la invitación
-de transformar esos momentos y ese sufrimiento en algo hermoso.
-
-a select few take the ticket and step into a world of their making
-It's crazy how context changes our perspective
-right it's like you really thought  life was getting up and meditating
-and going into your little cold plunge when things are good
-when the toughest decision you had to make that day
-was whether or not to get starbucks
-brother that's not life that's cruise control
-
-Unos pocos seleccionados toman el boleto y entran en un mundo creado por ellos mismos.
-Es una locura cómo el contexto cambia nuestra perspectiva.
-Exacto, es como si realmente pensaras que la vida se trata de levantarse, meditar
-y meterse en tu pequeño baño de agua fría cuando todo va bien,
-cuando la decisión más difícil que tenías que tomar ese día
-era si ibas o no a comprar un café en Starbucks.
-Hermano, eso no es la vida, eso es el piloto automático.
-```
-
-### 00:02:58 wednesday 2025-04-30
-
-```
-
-```
-
-<!--
-
-### thursday 2025-05-01
-
-```
-
-```
-
-### friday 2025-05-02
-
-```
-
-```
-
-### saturday 2025-05-03
-
-```
-
-```
-
-### sunday 2025-05-04
-
-```
-
-``` -->
-
-<!-- monday tuesday wednesday thursday friday saturday sunday -->
+Anderson then looks up from the paper looks over at Stephen and asks
