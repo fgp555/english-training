@@ -6,9 +6,12 @@
     <title>Typing to practice writing in English</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <script src="https://frankgp.com/component/stat.js" type="module"></script>
+    <script src="https://frank-gp.github.io/component/stat.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+      main {
+        max-width: fit-content;
+      }
       #result {
         margin-top: 20px;
         font-size: 1.2rem;
@@ -48,6 +51,26 @@
         max-width: 50rem;
         margin: 5rem auto;
       }
+      #toggleThemeBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 0.8rem 1rem;
+        border-radius: 50px;
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 1.5rem;
+      }
+      #fileSelector {
+        /* width: 100%; */
+        max-width: fit-content;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
     </style>
   </head>
   <body>
@@ -71,46 +94,64 @@
 
       <div style="margin-top: 1rem">
         <button id="startBtn">Comenzar</button>
-        <!-- <button id="compareBtn" class="secondary">Comparar</button> -->
         <button id="clearBtn" class="secondary">Borrar historial</button>
       </div>
 
       <div id="result"></div>
+
+      <select id="fileSelector"></select>
+      <div id="markdown-content" class="markdown-content"></div>
     </main>
 
-    <div id="markdown-content" class="markdown-content"></div>
-
-    <button
-      id="toggleThemeBtn"
-      style="
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 0.8rem 1rem;
-        border-radius: 50px;
-        background-color: #444;
-        color: white;
-        border: none;
-        cursor: pointer;
-        z-index: 1000;
-        font-size: 1.5rem;
-      "
-    >
+    <button id="toggleThemeBtn">
       <i id="themeIcon" class="fas fa-moon"></i>
     </button>
+
     <script>
-      // Cargar el archivo markdown.md
-      fetch("../youtube/speech/Yourworldwithin/stop-missing-the-opportunity.md?" + Date.now())
-        .then((response) => response.text())
-        .then((text) => {
-          // Convertir el contenido markdown a HTML
-          const html = marked.parse(text);
-          document.getElementById("markdown-content").innerHTML = html;
-        })
-        .catch((error) => {
-          console.error("Error cargando el Markdown:", error);
+      window.onload = function () {
+        const files = [
+          {
+            name: "Dominate 2025",
+            url: "./speech/250601-dominate-2025.md",
+          },
+          {
+            name: "Stop Missing",
+            url: "./speech/250427-stop-missing.md",
+          },
+        ];
+
+        const fileSelector = document.getElementById("fileSelector");
+
+        files.forEach((file, index) => {
+          const option = document.createElement("option");
+          option.value = file.url;
+          option.textContent = file.name;
+          if (index === 0) option.selected = true;
+          fileSelector.appendChild(option);
         });
+
+        function loadMarkdown(url) {
+          fetch(url + "?" + Date.now())
+            .then((response) => response.text())
+            .then((text) => {
+              const html = marked.parse(text);
+              document.getElementById("markdown-content").innerHTML = html;
+            })
+            .catch((error) => {
+              console.error("Error cargando el Markdown:", error);
+            });
+        }
+
+        // Cargar el archivo por defecto
+        loadMarkdown(files[0].url);
+
+        // Cambiar al seleccionar otro archivo
+        fileSelector.addEventListener("change", (e) => {
+          loadMarkdown(e.target.value);
+        });
+      };
     </script>
+
     <script>
       const toggleBtn = document.getElementById("toggleThemeBtn");
       const themeIcon = document.getElementById("themeIcon");
